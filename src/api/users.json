@@ -1,0 +1,50 @@
+[
+  {
+    "id": "USR-001",
+    "email": "admin@sentinel.io",
+    "password": "admin123",
+    "name": "Administrador",
+    "role": "admin",
+    "avatar": "AD",
+    "active": true,
+    "createdAt": "2025-01-10T08:00:00",
+    "lastLogin": "2025-06-14T09:47:00",
+    "permissions": ["view_dashboard", "manage_sensors", "manage_alerts", "manage_users", "view_history"]
+  },
+  {
+    "id": "USR-002",
+    "email": "seguridad@sentinel.io",
+    "password": "seg2025",
+    "name": "Franz Chipana",
+    "role": "operator",
+    "avatar": "FC",
+    "active": true,
+    "createdAt": "2025-02-15T09:00:00",
+    "lastLogin": "2025-06-14T08:00:00",
+    "permissions": ["view_dashboard", "manage_alerts", "view_history"]
+  },
+  {
+    "id": "USR-003",
+    "email": "viewer@sentinel.io",
+    "password": "view2025",
+    "name": "Sofía Sarmiento",
+    "role": "viewer",
+    "avatar": "SS",
+    "active": true,
+    "createdAt": "2025-03-01T10:00:00",
+    "lastLogin": "2025-06-13T17:30:00",
+    "permissions": ["view_dashboard", "view_history"]
+  },
+  {
+    "id": "USR-004",
+    "email": "inactivo@sentinel.io",
+    "password": "inact123",
+    "name": "Joar Aranda",
+    "role": "operator",
+    "avatar": "JA",
+    "active": false,
+    "createdAt": "2025-01-20T11:00:00",
+    "lastLogin": "2025-05-01T09:00:00",
+    "permissions": ["view_dashboard"]
+  }
+]

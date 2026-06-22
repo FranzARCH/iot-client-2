@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0a0f1e;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --cyan: #22d3ee;
+  --cyan-dim: #0e7490;
+  --cyan-bg: rgba(34, 211, 238, 0.08);
+  --amber: #f59e0b;
+  --amber-bg: rgba(245, 158, 11, 0.1);
+  --green: #10b981;
+  --green-bg: rgba(16, 185, 129, 0.1);
+  --red: #f43f5e;
+  --red-bg: rgba(244, 63, 94, 0.1);
+  --slate: #1e293b;
+  --slate2: #162032;
+  --slate3: #0f172a;
+  --border: rgba(148, 163, 184, 0.12);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+@keyframes scan-line {
+  0%   { top: 0%; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes alert-border {
+  0%, 100% { border-color: rgba(244, 63, 94, 0.4); }
+  50%       { border-color: rgba(244, 63, 94, 0.9); }
+}
+
+.animate-pulse-dot  { animation: pulse-dot 2s infinite; }
+.animate-scan-line  { animation: scan-line 2s ease-in-out infinite; }
+.animate-alert-card { animation: alert-border 1.5s infinite; }
+
+input:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: #334155; border-radius: 4px; }
