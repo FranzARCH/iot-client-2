@@ -9,45 +9,26 @@ const delay = (ms: number) => new Promise(res => setTimeout(res, ms))
 
 const MOCK_SENSORS: Sensor[] = [
   {
-    id: 'PIR-01', name: 'Sensor PIR', location: 'Zona A – Pasillo norte',
+    id: 'PIR-01', name: 'Sensor PIR', location: 'Entrada norte',
     type: 'pir', status: 'online', lastValue: '0 mov', lastSeen: '2025-06-14T09:47:22',
-  },
-  {
-    id: 'MAG-01', name: 'Sensor Magnético', location: 'Puerta principal',
-    type: 'magnetic', status: 'online', lastValue: 'CERRADA', lastSeen: '2025-06-14T09:45:10',
-  },
-  {
-    id: 'PIR-02', name: 'Sensor PIR', location: 'Zona B – Sala de servidores',
-    type: 'pir', status: 'triggered', lastValue: '1 mov', lastSeen: '2025-06-14T09:30:58',
   },
   {
     id: 'CAM-01', name: 'ESP32-CAM', location: 'Entrada norte',
     type: 'camera', status: 'online', lastValue: '1080p', lastSeen: '2025-06-14T09:47:00',
   },
-  {
-    id: 'MAG-02', name: 'Sensor Magnético', location: 'Puerta trasera',
-    type: 'magnetic', status: 'offline', lastValue: 'N/A', lastSeen: '2025-06-14T07:00:00',
-  },
 ]
 
 const MOCK_EVENTS: SecurityEvent[] = [
   { id: 'EVT-001', date: '2025-06-14', time: '09:47:22', sensorId: 'PIR-01', type: 'motion', label: 'Movimiento detectado',           severity: 'warning',  imageUrl: null },
-  { id: 'EVT-002', date: '2025-06-14', time: '09:45:10', sensorId: 'MAG-01', type: 'door',   label: 'Apertura de puerta',             severity: 'ok',       imageUrl: null },
-  { id: 'EVT-003', date: '2025-06-14', time: '09:30:58', sensorId: 'PIR-02', type: 'alert',  label: 'INTRUSIÓN detectada – Zona B',   severity: 'critical', imageUrl: null },
-  { id: 'EVT-004', date: '2025-06-14', time: '08:55:04', sensorId: 'CAM-01', type: 'auth',   label: 'Acceso autorizado',              severity: 'ok',       imageUrl: null },
-  { id: 'EVT-005', date: '2025-06-14', time: '08:12:33', sensorId: 'MAG-01', type: 'door',   label: 'Apertura de puerta',             severity: 'ok',       imageUrl: null },
-  { id: 'EVT-006', date: '2025-06-13', time: '23:44:18', sensorId: 'PIR-01', type: 'alert',  label: 'ALERTA: movimiento nocturno',    severity: 'critical', imageUrl: null },
-  { id: 'EVT-007', date: '2025-06-13', time: '22:10:02', sensorId: 'PIR-02', type: 'motion', label: 'Movimiento detectado',           severity: 'warning',  imageUrl: null },
-  { id: 'EVT-008', date: '2025-06-13', time: '18:30:11', sensorId: 'CAM-01', type: 'auth',   label: 'Acceso autorizado',              severity: 'ok',       imageUrl: null },
-  { id: 'EVT-009', date: '2025-06-13', time: '12:05:44', sensorId: 'MAG-02', type: 'door',   label: 'Apertura de puerta trasera',     severity: 'warning',  imageUrl: null },
-  { id: 'EVT-010', date: '2025-06-12', time: '09:00:00', sensorId: 'PIR-01', type: 'motion', label: 'Movimiento detectado',           severity: 'warning',  imageUrl: null },
+  { id: 'EVT-002', date: '2025-06-14', time: '09:44:10', sensorId: 'CAM-01', type: 'auth',   label: 'Actividad de camara en entrada norte', severity: 'ok', imageUrl: null },
+  { id: 'EVT-003', date: '2025-06-14', time: '09:30:58', sensorId: 'PIR-01', type: 'alert',  label: 'ALERTA: movimiento detectado en entrada norte', severity: 'critical', imageUrl: null },
+  { id: 'EVT-004', date: '2025-06-13', time: '23:44:18', sensorId: 'PIR-01', type: 'motion', label: 'Movimiento detectado',           severity: 'warning',  imageUrl: null },
+  { id: 'EVT-005', date: '2025-06-13', time: '18:30:11', sensorId: 'CAM-01', type: 'auth',   label: 'Acceso autorizado',              severity: 'ok',       imageUrl: null },
 ]
 
 const MOCK_ALERTS: Alert[] = [
-  { id: 'ALT-001', level: 'critical', message: 'INTRUSIÓN detectada en Zona B (PIR-02)',          sensorId: 'PIR-02', timestamp: '2025-06-14T09:30:58', acknowledged: false },
-  { id: 'ALT-002', level: 'critical', message: 'Movimiento nocturno fuera de horario (PIR-01)',   sensorId: 'PIR-01', timestamp: '2025-06-13T23:44:18', acknowledged: false },
-  { id: 'ALT-003', level: 'warning',  message: 'Apertura de puerta sin autenticación (MAG-01)',   sensorId: 'MAG-01', timestamp: '2025-06-14T09:45:10', acknowledged: false },
-  { id: 'ALT-004', level: 'warning',  message: 'Sensor MAG-02 sin conexión desde hace 2 h',       sensorId: 'MAG-02', timestamp: '2025-06-14T07:00:00', acknowledged: true  },
+  { id: 'ALT-001', level: 'critical', message: 'Movimiento no autorizado detectado (PIR-01)', sensorId: 'PIR-01', timestamp: '2025-06-14T09:30:58', acknowledged: false },
+  { id: 'ALT-002', level: 'warning',  message: 'Movimiento nocturno en entrada norte (PIR-01)', sensorId: 'PIR-01', timestamp: '2025-06-13T23:44:18', acknowledged: false },
 ]
 
 // ─── AUTH ─────────────────────────────────────────────────────────────────────

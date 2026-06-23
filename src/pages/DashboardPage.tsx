@@ -8,6 +8,7 @@ import { useEvents  } from '../hooks/useEvents'
 import { useAlerts  } from '../hooks/useAlerts'
 import { usePermissions } from '../hooks/usePermissions'
 import UserList from '../components/users/UserList'
+import Esp32CamStream from '../components/camera/Esp32CamStream'
 import MOCK_USERS from '../api/users.json'
 
 type Tab = 'monitoreo' | 'alertas' | 'historial'| 'usuarios'
@@ -88,6 +89,11 @@ export default function DashboardPage() {
           <div>
             <SectionTitle>Estado de sensores · ESP32</SectionTitle>
             <SensorGrid sensors={sensors} loading={loadSensors} />
+
+            <div className="mt-6">
+              <SectionTitle>ESP32-CAM · Video en vivo</SectionTitle>
+              <Esp32CamStream />
+            </div>
 
             <div className="mt-6">
               <SectionTitle>Últimas detecciones</SectionTitle>
